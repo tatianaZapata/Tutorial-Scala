@@ -13,5 +13,9 @@ GET     /message                    controllers.AsyncController.message
 GET     /assets/*file               controllers.Assets.versioned(file)
 
 # An example controller showing a Hola mundo
-GET     /practica                   controllers.PracticaController.prueba
+GET     /practica                   controllers.PracticaController.prueba200
+GET     /practicaError401           controllers.PracticaController.error401
+GET     /practicaError500           controllers.PracticaController.error500
+
+# POST    /practica:id                controllers.PracticaController.pruebaPost(id: Long)
 
