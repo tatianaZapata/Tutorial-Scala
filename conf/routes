@@ -17,5 +17,5 @@ GET     /practica                   controllers.PracticaController.prueba200
 GET     /practicaError401           controllers.PracticaController.error401
 GET     /practicaError500           controllers.PracticaController.error500
 
-# POST    /practica:id                controllers.PracticaController.pruebaPost(id: Long)
+# POST    /practica:id              controllers.PracticaController.pruebaPost(id: Long)
 
