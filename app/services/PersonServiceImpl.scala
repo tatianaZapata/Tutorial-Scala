@@ -2,7 +2,7 @@ package services
 
 import javax.inject.{Inject, Singleton}
 import tables.PersonsTable
-
+import models.Person
 import scala.concurrent.Future
 
 @Singleton
@@ -16,16 +16,19 @@ class PersonServiceImpl @Inject() (dbConfigProvider: DatabaseConfigProvider) ext
       (p.name, p.lastName)) += (person.name, person.lastName)
   )
 
-  def consultar(idPerson: Long): Future[Person]{
+  def consultar(idPerson: Long): Future[Option[Person]] = db.run(
+    persons.filter(_.id === id).result.headOption
+  )
 
+  def modificar(person: Person): Future[Int] = {
+    val query = for { p <- persons
+                      if p.id === person.id } yield p
+    db.run(query.update(person))
   }
-  def modificar(person: Person): Future[Person]{
 
-  }
-  def listar(): Future[Seq[Person]]{
+  def listar(): Future[Seq[Person]]= db.run { humans.result }
 
-  }
-  def eliminar(idPerson: Long): Future[Int]{
-
-  }
+  def eliminar(idPerson: Long): Future[Int] = db.run(
+    persons.filter(_.id === id).delete
+  )
 }
