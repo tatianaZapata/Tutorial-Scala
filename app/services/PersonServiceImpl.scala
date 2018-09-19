@@ -9,7 +9,6 @@ import scala.concurrent.Future
 class PersonServiceImpl @Inject() (dbConfigProvider: DatabaseConfigProvider) extends PersonService {
   import profile.api._
   private val persons = TableQuery[PersonsTable]
-  private val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   def crear(person: Person): Future[Int] = db.run(
     persons.map(p =>
