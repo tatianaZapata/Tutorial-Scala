@@ -3,11 +3,17 @@ package services
 import javax.inject.{Inject, Singleton}
 import tables.PersonsTable
 import models.Person
+import play.api.db.slick.DatabaseConfigProvider
 import scala.concurrent.Future
+import slick.jdbc.JdbcProfile
 
 @Singleton
 class PersonServiceImpl @Inject() (dbConfigProvider: DatabaseConfigProvider) extends PersonService {
-  import profile.api._
+
+  private val dbConfig = dbConfigProvider.get[JdbcProfile]
+
+  import dbConfig._ //Instanciar BD
+  import profile.api._ //Consultas a BD
   private val persons = TableQuery[PersonsTable]
 
   def crear(person: Person): Future[Int] = db.run(
@@ -16,7 +22,7 @@ class PersonServiceImpl @Inject() (dbConfigProvider: DatabaseConfigProvider) ext
   )
 
   def consultar(idPerson: Long): Future[Option[Person]] = db.run(
-    persons.filter(_.id === id).result.headOption
+    persons.filter(_.id === idPerson).result.headOption
   )
 
   def modificar(person: Person): Future[Int] = {
@@ -25,9 +31,9 @@ class PersonServiceImpl @Inject() (dbConfigProvider: DatabaseConfigProvider) ext
     db.run(query.update(person))
   }
 
-  def listar(): Future[Seq[Person]]= db.run { humans.result }
+  def listar(): Future[Seq[Person]]= db.run { persons.result }
 
   def eliminar(idPerson: Long): Future[Int] = db.run(
-    persons.filter(_.id === id).delete
+    persons.filter(_.id === idPerson).delete
   )
 }

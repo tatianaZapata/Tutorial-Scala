@@ -8,12 +8,12 @@ import models.Person
 
 class PersonController @Inject()(cc: ControllerComponents, personService: PersonServiceImpl) (implicit executionContext: ExecutionContext) extends AbstractController(cc){
 
-  def crear = Action.async(parserValidation.validateJson[Person]) {
+  /*def crear = Action.async(parserValidation.validateJson[Person]) {
     request => {
       personService.crear(request.body).map(code => {
         Ok("Persona guardada")
       })
     }
-  }
+  }*/
 
 }
