@@ -17,5 +17,12 @@ GET     /practica                   controllers.PracticaController.prueba200
 GET     /practicaError401           controllers.PracticaController.error401
 GET     /practicaError500           controllers.PracticaController.error500
 
-# POST    /practica:id              controllers.PracticaController.pruebaPost(id: Long)
+#POST    /practica:id              controllers.PracticaController.pruebaPost(id: Long)
+
+# Crud de personas
+GET     /personas                   controllers.PersonController.list
+POST    /personas                   controllers.PersonController.insert
+GET     /personas:id                controllers.PersonController.select(id: Long)
+PUT     /personas                   controllers.PersonController.update
+DELETE  /personas:id                controllers.PersonController.delete(id: Long)
 
