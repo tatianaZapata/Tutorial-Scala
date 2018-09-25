@@ -1,3 +1,3 @@
 package models
 
-case class Person(id: Option[Long], name: String, lastName: String)
+case class Person(id: Long, name: String, lastName: String)
