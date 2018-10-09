@@ -1,7 +1,7 @@
 package services
 
 import javax.inject.{Inject, Singleton}
-import tables.PersonsTable
+import tables.Persons
 import models.Person
 import play.api.db.slick.DatabaseConfigProvider
 import scala.concurrent.Future
@@ -14,7 +14,7 @@ class PersonServiceImpl @Inject() (dbConfigProvider: DatabaseConfigProvider) ext
 
   import dbConfig._ //Instanciar BD
   import profile.api._ //Consultas a BD
-  private val persons = TableQuery[PersonsTable]
+  private val persons = TableQuery[Persons]
 
   def crear(person: Person): Future[Int] = db.run(
     persons.map(p =>

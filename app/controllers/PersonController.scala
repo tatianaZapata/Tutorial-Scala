@@ -40,7 +40,7 @@ class PersonController @Inject()(cc: ControllerComponents, personService: Person
 
   def delete(id: Long) =  Action.async {
     personService.eliminar(id).map(code => {
-      Ok("Se modificó la persona correctamente")
+      Ok("Se eliminó la persona correctamente")
     })
   }
 
