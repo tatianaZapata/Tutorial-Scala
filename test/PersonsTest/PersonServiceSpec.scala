@@ -4,12 +4,11 @@ import models.Person
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.mockito.MockitoSugar
 import org.scalatestplus.play.PlaySpec
-import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import services.PersonService
 import scala.concurrent.Future
 import org.mockito.Mockito._
 
-class PersonServiceSpec extends PlaySpec with MockitoSugar with GuiceOneAppPerSuite with ScalaFutures{
+class PersonServiceSpec extends PlaySpec with MockitoSugar with ScalaFutures{
 
   val mockPersonService = mock[PersonService]
 

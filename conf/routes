@@ -26,3 +26,9 @@ GET     /personas/:id                controllers.PersonController.select(id: Lon
 PUT     /personas                   controllers.PersonController.update
 DELETE  /personas/:id                controllers.PersonController.delete(id: Long)
 
+# Calculadora
+GET    /calculadora/suma            controllers.CalculatorController.sumar(n1: Int, n2: Int)
+GET    /calculadora/resta           controllers.CalculatorController.restar(n1: Int, n2: Int)
+GET    /calculadora/multiplicacion  controllers.CalculatorController.multiplicar(n1: Int, n2: Int)
+GET    /calculadora/division        controllers.CalculatorController.dividir(n1: Int, n2: Int)
+
