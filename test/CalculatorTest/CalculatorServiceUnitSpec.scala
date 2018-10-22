@@ -5,7 +5,7 @@ import org.scalatestplus.play.PlaySpec
 import services.CalculatorService
 import org.mockito.Mockito._
 
-class CalculatorServiceSpec extends PlaySpec with MockitoSugar{
+class CalculatorServiceUnitSpec extends PlaySpec with MockitoSugar{
 
   val mockCalculatorService = mock[CalculatorService]
 

@@ -8,7 +8,7 @@ import services.PersonService
 import scala.concurrent.Future
 import org.mockito.Mockito._
 
-class PersonServiceSpec extends PlaySpec with MockitoSugar with ScalaFutures{
+class PersonServiceUnitSpec extends PlaySpec with MockitoSugar with ScalaFutures{
 
   val mockPersonService = mock[PersonService]
 

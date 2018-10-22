@@ -6,7 +6,7 @@ import play.api.test.FakeRequest
 import play.api.http.Status
 import play.api.test.Helpers._
 
-class CalculatorControllerSpec  extends PlaySpec with GuiceOneServerPerSuite{
+class CalculatorControllerFunctionalSpec  extends PlaySpec with GuiceOneServerPerSuite{
 
   "Calculator routes#SUMA" should {
     "Suma ejecutada correctamente" in {
